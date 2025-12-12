@@ -13,70 +13,54 @@ The goal of this project is to use resampling methods like oversampling, undersa
 When the number of samples in both classes is comparable, machine learning models perform best.  However, the model primarily learns from the majority class and ignores the minority class when the data is unbalanced.  As a result, even though the overall accuracy appears to be high, it predicts the minority class poorly.  In order to balance the data and assess how they enhance the model's learning and performance, this project employs a variety of resampling techniques.
 
 # 4.Methods Used
-  # 4.1 Data Preprocessing
+  **4.1 Data Preprocessing**
   Cleaned the dataset
   Scaled the features
   Split the data into training and testing sets
 
-  # 4.2 Resampling Techniques
+  **4.2 Resampling Techniques**
   Random Undersampling : Removing samples from the majority class in order to match the minority class is known as random     undersampling.
   Random Oversampling : To balance classes, random oversampling duplicates samples from minority classes.
   Cluster Centroids: By substituting them with cluster centers, the majority class is reduced.
   SMOTE: Uses feature similarities to generate synthetic (new) samples for the minority class.
 
-  # 4.3 Model Used
+  **4.3 Model Used**
   Logistic Regression was used because it is simple, fast, and easy to interpret.
 
-  # 4.4 Evaluation Metrics
+  **4.4 Evaluation Metrics**
     Accuracy
     Precision
     Recall
     F1-score
     AUC-ROC
 
-  # 4.5 Class Distribution Before & After Resampling
-    #Random Undersampling
-      Before:
-        Class 0: 573,518
-        Class 1: 21,694
-      After:
-        Class 0: 21,694
-        Class 1: 21,694
-    
-    #Random Oversampling
-      Before:
-        Class 0: 573,518
-        Class 1: 21,694
-      After:
-        Class 0: 573,518
-        Class 1: 573,518
-
-    #Cluster Centroids
-      Before:
-        Class 0: 573,518
-        Class 1: 21,694
-      After:
-        Class 0: 20
-        Class 1: 21,694
-
-    #SMOTE
-      Before:
-        Class 0: 573,518
-        Class 1: 21,694
-      After:
-        Class 0: 458,814
-        Class 1: 458,814
-        
+  **4.5.Resampling Techniques Used**
+      Random Undersampling,
+      Random Oversampling,
+      Cluster Centroids,
+      SMOTE (Synthetic Minority Oversampling Technique)
+  
 # 5.Model Performance
-      F1 Score (0.09) and AUC-ROC (0.57) indicate initial model performance and the potential gains achievable through resampling.
+**SMOTE**
+     F1 Score (0.09) and AUC-ROC (0.57) show that the model is learning but still has room to improve, and SMOTE helps in balancing the dataset for better minority-class recognition.
 
-     Class 0 (Majority class): Precision = 0.97, Recall = 0.59, F1-score = 0.74
-     → The model predicts most majority-class samples correctly.
+Class 0 (Majority class): Precision = 0.97, Recall = 0.59, F1-score = 0.74
+→ The model performs well on the majority class.
 
-     Class 1 (Minority class): Precision = 0.05, Recall = 0.55, F1-score = 0.09
-     → The model struggles to identify minority-class samples, showing the need for resampling to improve performance.
+Class 1 (Minority class): Precision = 0.05, Recall = 0.55, F1-score = 0.09
+→ SMOTE improves recall, but overall performance on the minority class still needs enhancement.
+
+**Cluste Centroids**
+    F1 Score (0.086) and AUC-ROC (0.56) indicate slightly reduced performance compared to SMOTE, mainly due to loss of information from heavy undersampling.
+
+Class 0 (Majority class): Precision = 0.97, Recall = 0.54, F1-score = 0.70
+→ Undersampling reduces recall, affecting majority-class predictions.
+
+Class 1 (Minority class): Precision = 0.05, Recall = 0.59, F1-score = 0.09
+→ Recall improves, but overall minority-class performance remains low due to limited training samples.
 
 # 6.Observations
+
   On unbalanced data, the model does poorly.
   Minority class prediction is enhanced by oversampling and SMOTE.
   Undersampling reduces accuracy and eliminates a large amount of data.
@@ -84,7 +68,7 @@ When the number of samples in both classes is comparable, machine learning model
 
 # 7.Conclusion
  
-  Imbalanced data can reduce a model’s ability to predict the minority class. Resampling techniques help by balancing the    dataset and improving performance. Among the methods tested, SMOTE gave the best results by creating a balanced dataset    without losing information. This project highlights the importance of handling imbalance for accurate and fair models.
+  Imbalanced data can reduce a model’s ability to predict the minority class. Resampling techniques help by balancing the   dataset and improving performance. Among the methods tested, SMOTE gave the best results by creating a balanced dataset    without losing information. This project highlights the importance of handling imbalance for accurate and fair models.
 
 
 # 8.Technologies Used
