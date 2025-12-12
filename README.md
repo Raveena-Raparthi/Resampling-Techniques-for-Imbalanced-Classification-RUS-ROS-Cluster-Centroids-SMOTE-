@@ -60,16 +60,10 @@ Class 1 (Minority class): Precision = 0.05, Recall = 0.59, F1-score = 0.09
 → Recall improves, but overall minority-class performance remains low due to limited training samples.
 
 # 6.Observations
-
-  On unbalanced data, the model does poorly.
-  Minority class prediction is enhanced by oversampling and SMOTE.
-  Undersampling reduces accuracy and eliminates a large amount of data.
-  Because SMOTE generates new synthetic samples, it typically produces the most balanced results.
-
+  The model performs well on the majority class but struggles heavily with the minority class due to imbalance. Accuracy appears high, but the F1 and AUROC scores show that the model is biased. This clearly indicates the need for resampling.
+  
 # 7.Conclusion
- 
-  Imbalanced data can reduce a model’s ability to predict the minority class. Resampling techniques help by balancing the   dataset and improving performance. Among the methods tested, SMOTE gave the best results by creating a balanced dataset    without losing information. This project highlights the importance of handling imbalance for accurate and fair models.
-
+   Training on an unbalanced dataset leads to poor minority-class detection and unreliable performance. These results show that balancing the data is essential for improving fairness and building a more accurate model.
 
 # 8.Technologies Used
     Python
